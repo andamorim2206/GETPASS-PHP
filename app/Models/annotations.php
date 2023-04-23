@@ -2,33 +2,34 @@
 
 namespace App\Models;
 
+use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class user
+ * Class annotations
  * @package App\Models
- * @version April 23, 2023, 9:45 pm UTC
+ * @version April 23, 2023, 10:02 pm UTC
  *
- * @property string $name
- * @property string $email
- * @property string $password
+ * @property string $title
+ * @property string $contente
  */
-class user extends Model
+class annotations extends Model
 {
     use SoftDeletes;
 
     use HasFactory;
 
-    public $table = 'user';
+    public $table = 'annotations';
+    
 
     protected $dates = ['deleted_at'];
 
+
+
     public $fillable = [
-        'name',
-        'email',
-        'password'
+        'title',
+        'contente'
     ];
 
     /**
@@ -37,9 +38,8 @@ class user extends Model
      * @var array
      */
     protected $casts = [
-        'name' => 'string',
-        'email' => 'string',
-        'password' => 'string'
+        'title' => 'string',
+        'contente' => 'string'
     ];
 
     /**
@@ -48,7 +48,8 @@ class user extends Model
      * @var array
      */
     public static $rules = [
-        'email' => 'unique'
+        
     ];
 
+    
 }
